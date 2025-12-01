@@ -1,0 +1,214 @@
+.pagos-container {
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 100%;
+}
+
+.pagos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.pagos-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Metrics Dashboard */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+}
+
+.metric-title {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.metric-card.profit {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+}
+
+.metric-card.profit .metric-title,
+.metric-card.profit .metric-value {
+    color: white;
+}
+
+.metric-card.debt {
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    color: white;
+    border: none;
+}
+
+.metric-card.debt .metric-title,
+.metric-card.debt .metric-value {
+    color: white;
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6c757d;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.tab-btn.active {
+    color: #0056b3;
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #0056b3;
+    border-radius: 3px 3px 0 0;
+}
+
+/* Table Styles */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.pagos-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pagos-table th,
+.pagos-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.pagos-table th {
+    background: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.pagos-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.pagos-table td {
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.amount {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+.amount.income {
+    color: #28a745;
+}
+
+.amount.expense {
+    color: #dc3545;
+}
+
+.amount.neutral {
+    color: #495057;
+}
+
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge.pagado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.pendiente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.reembolsado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.btn-action {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-action:hover {
+    background: #004494;
+}
+
+.btn-action:disabled {
+    background: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}

@@ -1,0 +1,368 @@
+.reportes-container {
+  padding: 2rem;
+  background-color: #f4f6f9;
+  min-height: 100%;
+}
+
+.reportes-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reportes-header h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.reportes-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.tab-btn.active {
+  background-color: #0056b3;
+  color: #ffffff !important;
+  box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+}
+
+/* Financial State Cards */
+.financial-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  border-left: 5px solid #ccc;
+}
+
+.summary-card.ingresos {
+  border-left-color: #28a745;
+}
+
+.summary-card.gastos {
+  border-left-color: #dc3545;
+}
+
+.summary-card.utilidad {
+  border-left-color: #0056b3;
+}
+
+.summary-card.margen {
+  border-left-color: #6f42c1;
+}
+
+.summary-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.summary-card .amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+/* Tables */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.table-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.table-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.btn-export {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.btn-export:hover {
+  background-color: #004494;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.pagado {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.pendiente {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.cancelado {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Filters */
+.filters-bar {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f3f5;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.filter-select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #495057;
+  background-color: white;
+}
+
+.filter-select:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+/* Estado de Resultados (Income Statement) Styles */
+.er-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.er-header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.er-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.er-paper {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  padding: 3rem;
+  border-radius: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  position: relative;
+}
+
+.er-paper::before {
+  /* Top accent line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0056b3, #00a651);
+}
+
+.er-section {
+  margin-bottom: 2.5rem;
+}
+
+.er-section-title {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #f1f3f5;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.er-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #f1f3f5;
+  font-size: 1rem;
+  color: #495057;
+}
+
+.er-row:last-child {
+  border-bottom: none;
+}
+
+.er-row span:last-child {
+  font-family: 'Courier New', Courier, monospace;
+  /* Financial look */
+  font-weight: 600;
+}
+
+.er-row.total {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  border-bottom: none;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.er-row.total.warning {
+  color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.er-section.result {
+  margin-top: 3rem;
+  border-top: 2px solid #2c3e50;
+  padding-top: 1.5rem;
+}
+
+.er-row.final {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #2c3e50;
+  border-bottom: none;
+  padding: 1rem 0;
+}
+
+.er-row.margin {
+  font-size: 1.1rem;
+  color: #6c757d;
+  border-bottom: none;
+}
+
+.positive {
+  color: #28a745 !important;
+}
+
+.negative {
+  color: #dc3545 !important;
+}
+
+/* Print adjustments */
+@media print {
+  .reportes-container {
+    background: white;
+    padding: 0;
+  }
+
+  .reportes-header,
+  .reportes-tabs,
+  .btn-export {
+    display: none;
+  }
+
+  .er-paper {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+    padding: 0;
+  }
+}

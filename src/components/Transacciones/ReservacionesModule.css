@@ -1,0 +1,476 @@
+.reservaciones-container {
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 100%;
+}
+
+.reservaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.reservaciones-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Metrics Section */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.metric-title {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.metric-subtext {
+    font-size: 0.85rem;
+    color: #adb5bd;
+    margin-top: 0.25rem;
+}
+
+.metric-card.blue {
+    border-top: 4px solid #0056b3;
+}
+
+.metric-card.green {
+    border-top: 4px solid #28a745;
+}
+
+.metric-card.orange {
+    border-top: 4px solid #fd7e14;
+}
+
+.metric-card.teal {
+    border-top: 4px solid #20c997;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    /* Professional Blue */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+}
+
+/* Form Styles */
+.reservation-form-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    animation: slideDown 0.3s ease-out;
+    border: 1px solid #e9ecef;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.summary-box {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #0056b3;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+}
+
+.summary-row.total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* List Styles */
+.reservations-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.reservation-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1.5rem;
+    align-items: center;
+    transition: transform 0.2s;
+    border: 1px solid #e9ecef;
+}
+
+.reservation-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.res-id {
+    font-weight: 700;
+    color: #adb5bd;
+    font-family: monospace;
+}
+
+.res-info h4 {
+    margin: 0 0 0.25rem 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.res-info p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.res-dates {
+    text-align: right;
+}
+
+.res-dates .date-range {
+    font-weight: 600;
+    color: #495057;
+    display: block;
+}
+
+.res-dates .nights {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.res-status {
+    text-align: right;
+}
+
+.res-price {
+    display: block;
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.error-msg {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge.confirmada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.cancelada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-badge.pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.completada {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+.status-badge.activa {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 20px;
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: #f8f9fa;
+    border-color: #adb5bd;
+}
+
+.filter-btn.active {
+    background: #2c3e50;
+    color: white;
+    border-color: #2c3e50;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.detail-modal {
+    background: white;
+    width: 95%;
+    max-width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    flex-shrink: 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: #adb5bd;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.btn-close-modal:hover {
+    color: #dc3545;
+}
+
+.modal-content {
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.detail-section {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.detail-section:last-child {
+    margin-bottom: 0;
+}
+
+.detail-section h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 0.75rem;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    align-items: baseline;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-row span:first-child {
+    color: #6c757d;
+    font-weight: 500;
+    text-align: left;
+}
+
+.info-row span:last-child {
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,243 @@
+.property-detail-container {
+    padding: 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    color: #222;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+.detail-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.detail-subtitle {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.detail-images {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    height: 400px;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #e0e0e0;
+}
+
+.secondary-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.sec-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #f0f0f0;
+}
+
+.detail-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.info-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.host-info {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.amenities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #484848;
+}
+
+.booking-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.price-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+}
+
+.price-large {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.btn-reserve {
+    width: 100%;
+    background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn-reserve:hover {
+    opacity: 0.95;
+}
+
+.login-warning {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #717171;
+    text-align: center;
+}
+
+/* Date Selection Styles */
+.date-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.date-input-group {
+    padding: 0.5rem;
+    border-right: 1px solid #b0b0b0;
+    cursor: pointer;
+}
+
+.date-input-group:last-child {
+    border-right: none;
+}
+
+.date-input-group:hover {
+    background-color: #f7f7f7;
+}
+
+.date-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+}
+
+.date-display {
+    font-size: 0.9rem;
+    color: #222;
+    min-height: 1.2rem;
+}
+
+.error-msg-booking {
+    color: #c13515;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.price-breakdown {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #484848;
+}
+
+.breakdown-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .property-detail-container {
+        padding: 1rem;
+    }
+
+    .detail-images {
+        grid-template-columns: 1fr;
+        height: 300px;
+    }
+
+    .secondary-images {
+        display: none;
+    }
+
+    .detail-content {
+        grid-template-columns: 1fr;
+    }
+}

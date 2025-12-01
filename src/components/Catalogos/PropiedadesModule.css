@@ -1,0 +1,195 @@
+.propiedades-container {
+    padding: 2rem;
+    background-color: #f4f6f9;
+    min-height: 100%;
+}
+
+.propiedades-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.propiedades-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.propiedades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.propiedad-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e9ecef;
+}
+
+.propiedad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-placeholder {
+    height: 200px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.card-location {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0056b3;
+    /* Blue price */
+}
+
+.card-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.card-actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #f1f3f5;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    background-color: #fff;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 1.1rem;
+}
+
+.btn-icon.edit {
+    color: #0056b3;
+}
+
+.btn-icon.edit:hover {
+    background-color: #e7f1ff;
+}
+
+.btn-icon.delete {
+    color: #dc3545;
+}
+
+.btn-icon.delete:hover {
+    background-color: #f8d7da;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #343a40;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
