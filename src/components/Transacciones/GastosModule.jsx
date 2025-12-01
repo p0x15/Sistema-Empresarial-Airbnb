@@ -4,7 +4,7 @@ import { formatearMoneda, formatearFecha } from '../../utils/calculations';
 import './GastosModule.css';
 
 const GastosModule = () => {
-    const { gastos, pagos, mantenimientos, crearGasto, eliminarGasto } = useData();
+    const { gastos, pagos, mantenimientos, crearGasto, eliminarGasto, propiedades } = useData();
     const [showModal, setShowModal] = useState(false);
 
     const initialFormState = {
@@ -14,7 +14,8 @@ const GastosModule = () => {
         proveedor: '',
         monto: '',
         iva: '',
-        estatus: 'Pagado'
+        estatus: 'Pagado',
+        idPropiedad: ''
     };
     const [formData, setFormData] = useState(initialFormState);
 
@@ -74,6 +75,7 @@ const GastosModule = () => {
 
         crearGasto({
             ...formData,
+            idPropiedad: formData.idPropiedad ? parseInt(formData.idPropiedad) : null,
             monto,
             iva,
             totalConIVA: monto + iva
@@ -141,6 +143,7 @@ const GastosModule = () => {
                             <th>Categoría</th>
                             <th>Descripción</th>
                             <th>Proveedor</th>
+                            <th>Propiedad</th>
                             <th>Total (c/IVA)</th>
                             <th>Acción</th>
                         </tr>
@@ -152,6 +155,12 @@ const GastosModule = () => {
                                 <td><span className="category-tag">{gasto.categoria}</span></td>
                                 <td>{gasto.descripcion}</td>
                                 <td>{gasto.proveedor}</td>
+                                <td>
+                                    {gasto.idPropiedad
+                                        ? propiedades.find(p => p.id === gasto.idPropiedad)?.nombre || 'Propiedad Desconocida'
+                                        : <span style={{ color: '#999', fontStyle: 'italic' }}>Corporativo</span>
+                                    }
+                                </td>
                                 <td style={{ fontWeight: 600, color: '#dc3545' }}>{formatearMoneda(gasto.totalConIVA)}</td>
                                 <td>
                                     <button
@@ -181,6 +190,15 @@ const GastosModule = () => {
                                 <div className="form-group">
                                     <label>Fecha</label>
                                     <input type="date" name="fecha" value={formData.fecha} onChange={handleInputChange} className="form-control" required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Propiedad (Opcional)</label>
+                                    <select name="idPropiedad" value={formData.idPropiedad} onChange={handleInputChange} className="form-control">
+                                        <option value="">-- Gasto Corporativo / General --</option>
+                                        {propiedades.map(prop => (
+                                            <option key={prop.id} value={prop.id}>{prop.nombre}</option>
+                                        ))}
+                                    </select>
                                 </div>
                                 <div className="form-group">
                                     <label>Categoría</label>

@@ -252,7 +252,7 @@ const MantenimientoModule = () => {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Precio al Anfitrión ($)</label>
+                                        <label>Precio al Anfitrión (Cobro + Fee)</label>
                                         <input
                                             type="number"
                                             name="totalCobrado"

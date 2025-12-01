@@ -829,6 +829,7 @@ export const initialData = {
   gastos: [
     {
       id: 1,
+      idPropiedad: null,
       fecha: "2025-01-15",
       categoria: "Software",
       descripcion: "Suscripción mensual Airbnb Plus para anfitriones",
@@ -840,6 +841,7 @@ export const initialData = {
     },
     {
       id: 2,
+      idPropiedad: 456, // Ejemplo de gasto asociado a propiedad
       fecha: "2025-01-03",
       categoria: "Mantenimiento de propiedades",
       descripcion: "Reparaciones menores oficina",
