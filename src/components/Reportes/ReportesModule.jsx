@@ -13,11 +13,44 @@ const ReportesModule = () => {
   const [activeTab, setActiveTab] = useState('general');
   const [filterPeriod, setFilterPeriod] = useState('all'); // all, month, week
 
-  // Calcular datos financieros precisos para el Estado de Resultados
+  // Función de filtrado reutilizable
+  const filterByDate = (data, dateField) => {
+    if (filterPeriod === 'all') return data;
+
+    const now = new Date();
+    // Resetear horas para comparación de fechas pura
+    now.setHours(23, 59, 59, 999);
+
+    const oneWeekAgo = new Date(now);
+    oneWeekAgo.setDate(now.getDate() - 7);
+    oneWeekAgo.setHours(0, 0, 0, 0);
+
+    const oneMonthAgo = new Date(now);
+    oneMonthAgo.setMonth(now.getMonth() - 1);
+    oneMonthAgo.setHours(0, 0, 0, 0);
+
+    return data.filter(item => {
+      if (!item[dateField]) return false;
+      const itemDate = new Date(item[dateField]);
+      // Ajuste de zona horaria simple o asumir UTC/Local consistente
+      // Para seguridad, comparamos timestamps o fechas
+
+      if (filterPeriod === 'week') return itemDate >= oneWeekAgo;
+      if (filterPeriod === 'month') return itemDate >= oneMonthAgo;
+      return true;
+    });
+  };
+
+  // Datos filtrados dinámicamente
+  const filteredPagos = useMemo(() => filterByDate(pagos, 'fechaPago'), [pagos, filterPeriod]);
+  const filteredGastos = useMemo(() => filterByDate(gastos, 'fecha'), [gastos, filterPeriod]);
+  const filteredMantenimientos = useMemo(() => filterByDate(mantenimientos, 'fechaProgramada'), [mantenimientos, filterPeriod]);
+
+  // Calcular datos financieros precisos para el Estado de Resultados (basado en filtrados)
   const financialData = useMemo(() => {
     // 1. Ingresos por Comisiones (Reservas)
     let ingresosComisiones = 0;
-    pagos.forEach(p => {
+    filteredPagos.forEach(p => {
       if (p.estadoPago === 'Pagado' || p.estadoPago === 'Dispersado') {
         ingresosComisiones += parseFloat(p.comisionAirbnb || 0);
       }
@@ -25,7 +58,7 @@ const ReportesModule = () => {
 
     // 2. Ingresos por Mantenimiento (Utilidad Neta del Servicio)
     let utilidadMantenimiento = 0;
-    mantenimientos.forEach(m => {
+    filteredMantenimientos.forEach(m => {
       if (m.estatus === 'Completado') {
         utilidadMantenimiento += (parseFloat(m.totalCobrado || 0) - parseFloat(m.costoBase || 0));
       }
@@ -44,7 +77,7 @@ const ReportesModule = () => {
       'Otros': 0
     };
 
-    gastos.forEach(g => {
+    filteredGastos.forEach(g => {
       if (g.estatus === 'Pagado') {
         const monto = parseFloat(g.totalConIVA || 0);
         totalGastos += monto;
@@ -75,30 +108,12 @@ const ReportesModule = () => {
       utilidadNeta,
       margenNeto
     };
-  }, [pagos, gastos, mantenimientos]);
-
-  // Filtrado de datos para tablas auxiliares
-  const getFilteredData = (data, dateField) => {
-    if (filterPeriod === 'all') return data;
-
-    const now = new Date();
-    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
-
-    return data.filter(item => {
-      const itemDate = new Date(item[dateField]);
-      if (filterPeriod === 'week') return itemDate >= oneWeekAgo;
-      if (filterPeriod === 'month') return itemDate >= oneMonthAgo;
-      return true;
-    });
-  };
-
-  const filteredPagos = getFilteredData(pagos, 'fechaPago');
-  const filteredGastos = getFilteredData(gastos, 'fecha');
+  }, [filteredPagos, filteredGastos, filteredMantenimientos]);
 
   // Funciones de exportación PDF
   const exportarEstadoResultados = () => {
     const doc = new jsPDF();
+    const periodText = filterPeriod === 'all' ? 'Histórico Total' : filterPeriod === 'month' ? 'Último Mes' : 'Última Semana';
 
     // Encabezado
     doc.setFontSize(22);
@@ -107,8 +122,8 @@ const ReportesModule = () => {
 
     doc.setFontSize(12);
     doc.setTextColor(100);
-    doc.text(`Airbnb Enterprise Management`, 105, 28, null, null, 'center');
-    doc.text(`Al ${new Date().toLocaleDateString()}`, 105, 34, null, null, 'center');
+    doc.text(`Airbnb Enterprise Management - ${periodText}`, 105, 28, null, null, 'center');
+    doc.text(`Generado al: ${new Date().toLocaleDateString()}`, 105, 34, null, null, 'center');
 
     // Cuerpo del Reporte
     doc.autoTable({
@@ -127,7 +142,7 @@ const ReportesModule = () => {
         ['Tecnología y Software', formatearMoneda(financialData.gastosPorCategoria['Software']), ''],
         ['Legales y Administrativos', formatearMoneda(financialData.gastosPorCategoria['Legales']), ''],
         ['Otros Gastos Generales', formatearMoneda(financialData.gastosPorCategoria['Otros'] + financialData.gastosPorCategoria['Operativo']), ''],
-        [{ content: 'TOTAL GASTOS', styles: { fontStyle: 'bold' } }, formatearMoneda(financialData.totalGastos), `${((financialData.totalGastos / financialData.totalIngresosOperativos) * 100).toFixed(1)}%`],
+        [{ content: 'TOTAL GASTOS', styles: { fontStyle: 'bold' } }, formatearMoneda(financialData.totalGastos), financialData.totalIngresosOperativos > 0 ? `${((financialData.totalGastos / financialData.totalIngresosOperativos) * 100).toFixed(1)}%` : '0%'],
 
         ['', '', ''], // Espacio
         [{ content: 'UTILIDAD NETA DEL EJERCICIO', styles: { fontStyle: 'bold', fontSize: 12, textColor: [0, 128, 0] } },
@@ -143,7 +158,7 @@ const ReportesModule = () => {
       }
     });
 
-    doc.save('estado_resultados.pdf');
+    doc.save(`estado_resultados_${filterPeriod}.pdf`);
   };
 
   const exportarTabla = (titulo, columnas, datos, nombreArchivo) => {
@@ -151,7 +166,7 @@ const ReportesModule = () => {
     doc.setFontSize(18);
     doc.text(titulo, 14, 22);
     doc.setFontSize(10);
-    doc.text(`Generado el: ${new Date().toLocaleDateString()}`, 14, 30);
+    doc.text(`Generado el: ${new Date().toLocaleDateString()} (${filterPeriod})`, 14, 30);
     doc.autoTable({
       startY: 35,
       head: [columnas],
@@ -162,14 +177,33 @@ const ReportesModule = () => {
     doc.save(`${nombreArchivo}.pdf`);
   };
 
+  // Componente de Filtro Reutilizable
+  const FilterComponent = () => (
+    <div className="filter-group">
+      <label>Periodo:</label>
+      <select
+        value={filterPeriod}
+        onChange={(e) => setFilterPeriod(e.target.value)}
+        className="filter-select"
+      >
+        <option value="all">Todo el historial</option>
+        <option value="month">Último Mes</option>
+        <option value="week">Última Semana</option>
+      </select>
+    </div>
+  );
+
   const renderEstadoResultados = () => (
     <div className="tab-content fade-in">
       <div className="er-container">
         <div className="er-header">
           <h3>Estado de Resultados Integral</h3>
-          <button onClick={exportarEstadoResultados} className="btn-export">
-            📄 Descargar PDF Oficial
-          </button>
+          <div className="header-actions">
+            <FilterComponent />
+            <button onClick={exportarEstadoResultados} className="btn-export">
+              📄 Descargar PDF
+            </button>
+          </div>
         </div>
 
         <div className="er-paper">
@@ -199,6 +233,12 @@ const ReportesModule = () => {
                 </div>
               )
             ))}
+            {financialData.totalGastos === 0 && (
+              <div className="er-row" style={{ fontStyle: 'italic', color: '#999' }}>
+                <span>Sin gastos registrados en este periodo</span>
+                <span>$0.00</span>
+              </div>
+            )}
             <div className="er-row total warning">
               <span>TOTAL GASTOS</span>
               <span>{formatearMoneda(financialData.totalGastos)}</span>
@@ -251,18 +291,7 @@ const ReportesModule = () => {
         </div>
 
         <div className="filters-bar">
-          <div className="filter-group">
-            <label>Filtrar por fecha:</label>
-            <select
-              value={filterPeriod}
-              onChange={(e) => setFilterPeriod(e.target.value)}
-              className="filter-select"
-            >
-              <option value="all">Todo el historial</option>
-              <option value="month">Último Mes</option>
-              <option value="week">Última Semana</option>
-            </select>
-          </div>
+          <FilterComponent />
         </div>
 
         <table className="data-table">
@@ -278,21 +307,27 @@ const ReportesModule = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredPagos.map(pago => (
-              <tr key={pago.id}>
-                <td>{formatearFecha(pago.fechaPago)}</td>
-                <td>#{pago.idReserva}</td>
-                <td>{pago.metodoPago}</td>
-                <td>{formatearMoneda(pago.montoBruto)}</td>
-                <td style={{ color: '#28a745', fontWeight: 'bold' }}>+{formatearMoneda(pago.comisionAirbnb)}</td>
-                <td style={{ color: '#6c757d' }}>{formatearMoneda(pago.montoNeto)}</td>
-                <td>
-                  <span className={`status-badge ${pago.estadoPago.toLowerCase()}`}>
-                    {pago.estadoPago}
-                  </span>
-                </td>
+            {filteredPagos.length > 0 ? (
+              filteredPagos.map(pago => (
+                <tr key={pago.id}>
+                  <td>{formatearFecha(pago.fechaPago)}</td>
+                  <td>#{pago.idReserva}</td>
+                  <td>{pago.metodoPago}</td>
+                  <td>{formatearMoneda(pago.montoBruto)}</td>
+                  <td style={{ color: '#28a745', fontWeight: 'bold' }}>+{formatearMoneda(pago.comisionAirbnb)}</td>
+                  <td style={{ color: '#6c757d' }}>{formatearMoneda(pago.montoNeto)}</td>
+                  <td>
+                    <span className={`status-badge ${pago.estadoPago.toLowerCase()}`}>
+                      {pago.estadoPago}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7" style={{ textAlign: 'center', padding: '2rem' }}>No hay ingresos en este periodo.</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
@@ -326,18 +361,7 @@ const ReportesModule = () => {
         </div>
 
         <div className="filters-bar">
-          <div className="filter-group">
-            <label>Filtrar por fecha:</label>
-            <select
-              value={filterPeriod}
-              onChange={(e) => setFilterPeriod(e.target.value)}
-              className="filter-select"
-            >
-              <option value="all">Todo el historial</option>
-              <option value="month">Último Mes</option>
-              <option value="week">Última Semana</option>
-            </select>
-          </div>
+          <FilterComponent />
         </div>
 
         <table className="data-table">
@@ -353,17 +377,23 @@ const ReportesModule = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredGastos.map(gasto => (
-              <tr key={gasto.id}>
-                <td>{formatearFecha(gasto.fecha)}</td>
-                <td>{gasto.categoria}</td>
-                <td>{gasto.proveedor}</td>
-                <td>{gasto.descripcion}</td>
-                <td>{formatearMoneda(gasto.monto)}</td>
-                <td>{formatearMoneda(gasto.iva)}</td>
-                <td style={{ fontWeight: 'bold', color: '#dc3545' }}>{formatearMoneda(gasto.totalConIVA)}</td>
+            {filteredGastos.length > 0 ? (
+              filteredGastos.map(gasto => (
+                <tr key={gasto.id}>
+                  <td>{formatearFecha(gasto.fecha)}</td>
+                  <td>{gasto.categoria}</td>
+                  <td>{gasto.proveedor}</td>
+                  <td>{gasto.descripcion}</td>
+                  <td>{formatearMoneda(gasto.monto)}</td>
+                  <td>{formatearMoneda(gasto.iva)}</td>
+                  <td style={{ fontWeight: 'bold', color: '#dc3545' }}>{formatearMoneda(gasto.totalConIVA)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7" style={{ textAlign: 'center', padding: '2rem' }}>No hay gastos en este periodo.</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>

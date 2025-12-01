@@ -561,19 +561,19 @@ export const initialData = {
     {
       id: 1,
       idReserva: 1,
-      fechaPago: "2025-02-15",
+      fechaPago: "2025-11-25",
       montoBruto: 14000.00,
       comisionAirbnb: 2800.00, // 20% Comisión
       montoNeto: 11200.00,
       metodoPago: "Tarjeta",
       estadoPago: "Pagado",
       estadoDispersado: true,
-      fechaDispersion: "2025-02-16"
+      fechaDispersion: "2025-11-26"
     },
     {
       id: 2,
       idReserva: 2,
-      fechaPago: "2025-02-24",
+      fechaPago: "2025-11-26",
       montoBruto: 22400.00,
       comisionAirbnb: 4480.00, // 20% Comisión
       montoNeto: 17920.00,
@@ -584,14 +584,14 @@ export const initialData = {
     {
       id: 3,
       idReserva: 3,
-      fechaPago: "2025-03-07",
+      fechaPago: "2025-10-15",
       montoBruto: 40000.00,
       comisionAirbnb: 8000.00, // 20% Comisión
       montoNeto: 32000.00,
       metodoPago: "Tarjeta",
       estadoPago: "Pagado",
       estadoDispersado: true,
-      fechaDispersion: "2025-03-08"
+      fechaDispersion: "2025-10-16"
     },
     {
       id: 4,
@@ -606,7 +606,7 @@ export const initialData = {
     {
       id: 5,
       idReserva: 5,
-      fechaPago: "2025-03-29",
+      fechaPago: "2025-10-25",
       montoBruto: 7200.00,
       comisionAirbnb: 1440.00,
       montoNeto: 5760.00,
@@ -617,19 +617,19 @@ export const initialData = {
     {
       id: 6,
       idReserva: 6,
-      fechaPago: "2025-04-11",
+      fechaPago: "2025-09-10",
       montoBruto: 50000.00,
       comisionAirbnb: 10000.00, // 20% Comisión (VIP)
       montoNeto: 40000.00,
       metodoPago: "Tarjeta",
       estadoPago: "Pagado",
       estadoDispersado: true,
-      fechaDispersion: "2025-04-12"
+      fechaDispersion: "2025-09-11"
     },
     {
       id: 7,
       idReserva: 7,
-      fechaPago: "2025-04-14",
+      fechaPago: "2025-11-28",
       montoBruto: 11200.00,
       comisionAirbnb: 2240.00,
       montoNeto: 8960.00,
@@ -640,7 +640,7 @@ export const initialData = {
     {
       id: 8,
       idReserva: 8,
-      fechaPago: "2025-04-29",
+      fechaPago: "2025-08-15",
       montoBruto: 30000.00,
       comisionAirbnb: 6000.00,
       montoNeto: 24000.00,
@@ -651,19 +651,19 @@ export const initialData = {
     {
       id: 9,
       idReserva: 9,
-      fechaPago: "2025-05-04",
+      fechaPago: "2025-07-20",
       montoBruto: 6600.00,
       comisionAirbnb: 1320.00,
       montoNeto: 5280.00,
       metodoPago: "Efectivo",
       estadoPago: "Pagado",
       estadoDispersado: true,
-      fechaDispersion: "2025-05-05"
+      fechaDispersion: "2025-07-21"
     },
     {
       id: 10,
       idReserva: 10,
-      fechaPago: "2025-05-16",
+      fechaPago: "2025-11-29",
       montoBruto: 15600.00,
       comisionAirbnb: 3120.00,
       montoNeto: 12480.00,
@@ -796,6 +796,30 @@ export const initialData = {
       comisionPlataforma: 300.00,
       totalCobrado: 1200.00,
       estatus: "Completado"
+    },
+    {
+      id: 466,
+      idPropiedad: 456,
+      tipo: "Limpieza",
+      descripcion: "Limpieza express check-out",
+      fechaProgramada: "2025-11-28",
+      costoBase: 400.00,
+      porcentajeComision: 0,
+      comisionPlataforma: 150.00,
+      totalCobrado: 550.00,
+      estatus: "Completado"
+    },
+    {
+      id: 467,
+      idPropiedad: 458,
+      tipo: "Correctivo",
+      descripcion: "Reparación chapa puerta principal",
+      fechaProgramada: "2025-11-15",
+      costoBase: 600.00,
+      porcentajeComision: 0,
+      comisionPlataforma: 200.00,
+      totalCobrado: 800.00,
+      estatus: "Completado"
     }
   ],
 
@@ -882,6 +906,7 @@ export const initialData = {
     },
     {
       id: 10,
+      idReserva: 10, // Error in original data? This looks like an expense ID, not reservation ID. Keeping as is but updating content.
       fecha: "2025-05-02",
       categoria: "Otros",
       descripcion: "Seguros de propiedad contra daños",
@@ -889,6 +914,39 @@ export const initialData = {
       monto: 3200.00,
       iva: 512.00,
       totalConIVA: 3712.00,
+      estatus: "Pagado"
+    },
+    {
+      id: 11,
+      fecha: "2025-11-28",
+      categoria: "Marketing",
+      descripcion: "Campaña Black Friday Redes Sociales",
+      proveedor: "Meta Ads",
+      monto: 2500.00,
+      iva: 400.00,
+      totalConIVA: 2900.00,
+      estatus: "Pagado"
+    },
+    {
+      id: 12,
+      fecha: "2025-11-15",
+      categoria: "Software",
+      descripcion: "Renovación Licencia CRM",
+      proveedor: "Salesforce",
+      monto: 1200.00,
+      iva: 192.00,
+      totalConIVA: 1392.00,
+      estatus: "Pagado"
+    },
+    {
+      id: 13,
+      fecha: "2025-11-05",
+      categoria: "Operativo",
+      descripcion: "Suministros de oficina y limpieza",
+      proveedor: "Office Depot",
+      monto: 850.00,
+      iva: 136.00,
+      totalConIVA: 986.00,
       estatus: "Pagado"
     }
   ]

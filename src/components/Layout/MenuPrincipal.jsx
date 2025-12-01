@@ -102,8 +102,8 @@ const MenuPrincipal = ({ onLogout }) => {
         <div className="sidebar-header">
           {isSidebarOpen && (
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg"
-              alt="Airbnb"
+              src="/Sistema-Empresarial-Airbnb/habita_logo.png"
+              alt="Habitá"
               className="sidebar-logo"
             />
           )}

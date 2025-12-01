@@ -40,14 +40,14 @@ body {
 }
 
 .btn-primary {
-  background: #ff385c;
+  background: #0056b3;
   color: white;
 }
 
 .btn-primary:hover {
-  background: #e00b41;
+  background: #004494;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
 }
 
 .btn-secondary {
@@ -97,7 +97,7 @@ body {
 }
 
 .table thead {
-  background: #ff385c;
+  background: #0056b3;
   color: white;
 }
 
@@ -142,7 +142,7 @@ body {
 
 .form-control:focus {
   outline: none;
-  border-color: #ff385c;
+  border-color: #0056b3;
 }
 
 .form-select {
@@ -183,7 +183,7 @@ body {
 /* Loading spinner */
 .spinner {
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #ff385c;
+  border-top: 3px solid #0056b3;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -192,8 +192,13 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Responsive */

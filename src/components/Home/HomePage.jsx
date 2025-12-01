@@ -119,8 +119,8 @@ const HomePage = ({ onLogin, isUserLoggedIn }) => {
                 <header className="home-header">
                     <div className="logo-container" onClick={() => setSelectedProperty(null)} style={{ cursor: 'pointer' }}>
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg"
-                            alt="Airbnb"
+                            src="/Sistema-Empresarial-Airbnb/habita_logo.png"
+                            alt="Habitá"
                         />
                     </div>
                     <div className="header-actions">
@@ -167,13 +167,13 @@ const HomePage = ({ onLogin, isUserLoggedIn }) => {
             <header className="home-header">
                 <div className="logo-container">
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg"
-                        alt="Airbnb"
+                        src="/Sistema-Empresarial-Airbnb/habita_logo.png"
+                        alt="Habitá"
                     />
                 </div>
 
                 <div className="header-actions">
-                    <button className="btn-host">Pon tu espacio en Airbnb</button>
+                    <button className="btn-host">Tu hogar en cada estancia</button>
                     <button className="btn-login-trigger" onClick={() => setShowLoginModal(true)}>
                         <span style={{ fontSize: '1.2rem' }}>☰</span>
                         <span className="user-icon">👤</span>

@@ -53,7 +53,7 @@
 }
 
 .search-icon-circle {
-    background-color: #ff385c;
+    background-color: #0056b3;
     color: white;
     border-radius: 50%;
     padding: 0.5rem;
@@ -78,6 +78,7 @@
     padding: 0.75rem;
     border-radius: 22px;
     color: #222;
+    font-family: 'Arial Nova', sans-serif;
 }
 
 .btn-host:hover {
@@ -328,7 +329,7 @@
 }
 
 .btn-submit-login {
-    background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+    background: #0056b3;
     color: white;
     border: none;
     padding: 1rem;
@@ -362,13 +363,13 @@
 }
 
 .btn-auth-option.primary {
-    background-color: #ff385c;
+    background-color: #0056b3;
     color: white;
     border: none;
 }
 
 .btn-auth-option.primary:hover {
-    background-color: #d9324e;
+    background-color: #004494;
 }
 
 .btn-auth-option.outline {
