@@ -299,10 +299,10 @@ const ReportesModule = () => {
             {filteredPagos.length > 0 ? (
               filteredPagos.map(pago => (
                 <tr key={pago.id}>
-                  <td>{formatearFecha(pago.fechaPago)}</td>
-                  <td>#{pago.idReserva}</td>
-                  <td>{pago.metodoPago}</td>
-                  <td>{formatearMoneda(pago.montoBruto)}</td>
+                  <td style={{ color: '#495057' }}>{formatearFecha(pago.fechaPago)}</td>
+                  <td style={{ color: '#495057' }}>#{pago.idReserva}</td>
+                  <td style={{ color: '#495057' }}>{pago.metodoPago}</td>
+                  <td style={{ color: '#495057' }}>{formatearMoneda(pago.montoBruto)}</td>
                   <td style={{ color: '#28a745', fontWeight: 'bold' }}>+{formatearMoneda(pago.comisionAirbnb)}</td>
                   <td style={{ color: '#6c757d' }}>{formatearMoneda(pago.montoNeto)}</td>
                   <td>
@@ -369,12 +369,12 @@ const ReportesModule = () => {
             {filteredGastos.length > 0 ? (
               filteredGastos.map(gasto => (
                 <tr key={gasto.id}>
-                  <td>{formatearFecha(gasto.fecha)}</td>
-                  <td>{gasto.categoria}</td>
-                  <td>{gasto.proveedor}</td>
-                  <td>{gasto.descripcion}</td>
-                  <td>{formatearMoneda(gasto.monto)}</td>
-                  <td>{formatearMoneda(gasto.iva)}</td>
+                  <td style={{ color: '#495057' }}>{formatearFecha(gasto.fecha)}</td>
+                  <td style={{ color: '#495057' }}>{gasto.categoria}</td>
+                  <td style={{ color: '#495057' }}>{gasto.proveedor}</td>
+                  <td style={{ color: '#495057' }}>{gasto.descripcion}</td>
+                  <td style={{ color: '#495057' }}>{formatearMoneda(gasto.monto)}</td>
+                  <td style={{ color: '#495057' }}>{formatearMoneda(gasto.iva)}</td>
                   <td style={{ fontWeight: 'bold', color: '#dc3545' }}>{formatearMoneda(gasto.totalConIVA)}</td>
                 </tr>
               ))
