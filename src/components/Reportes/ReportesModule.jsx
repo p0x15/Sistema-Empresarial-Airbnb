@@ -6,6 +6,7 @@ import {
 } from '../../utils/calculations';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { exportarTablaPDF } from '../../utils/pdfExporter';
 import './ReportesModule.css';
 
 const ReportesModule = () => {
@@ -162,19 +163,7 @@ const ReportesModule = () => {
   };
 
   const exportarTabla = (titulo, columnas, datos, nombreArchivo) => {
-    const doc = new jsPDF();
-    doc.setFontSize(18);
-    doc.text(titulo, 14, 22);
-    doc.setFontSize(10);
-    doc.text(`Generado el: ${new Date().toLocaleDateString()} (${filterPeriod})`, 14, 30);
-    doc.autoTable({
-      startY: 35,
-      head: [columnas],
-      body: datos,
-      theme: 'striped',
-      headStyles: { fillColor: [44, 62, 80] }
-    });
-    doc.save(`${nombreArchivo}.pdf`);
+    exportarTablaPDF(titulo, columnas, datos, nombreArchivo);
   };
 
   // Componente de Filtro Reutilizable
