@@ -12,7 +12,7 @@ export const exportarTablaPDF = (titulo, columnas, datos, nombreArchivo) => {
     // Subtítulo con fecha
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text(`Generado el: ${new Date().toLocaleDateString()}`, 14, 30);
+    doc.text(`Generado el: ${new Date().toLocaleDateString()} `, 14, 30);
 
     // Tabla
     doc.autoTable({
