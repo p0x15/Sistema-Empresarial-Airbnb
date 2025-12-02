@@ -151,11 +151,11 @@ const GastosModule = () => {
                     <tbody>
                         {gastos.slice().reverse().map(gasto => (
                             <tr key={gasto.id}>
-                                <td>{formatearFecha(gasto.fecha)}</td>
+                                <td style={{ color: '#495057' }}>{formatearFecha(gasto.fecha)}</td>
                                 <td><span className="category-tag">{gasto.categoria}</span></td>
-                                <td>{gasto.descripcion}</td>
-                                <td>{gasto.proveedor}</td>
-                                <td>
+                                <td style={{ color: '#495057' }}>{gasto.descripcion}</td>
+                                <td style={{ color: '#495057' }}>{gasto.proveedor}</td>
+                                <td style={{ color: '#495057' }}>
                                     {gasto.idPropiedad
                                         ? propiedades.find(p => p.id === gasto.idPropiedad)?.nombre || 'Propiedad Desconocida'
                                         : <span style={{ color: '#999', fontStyle: 'italic' }}>Corporativo</span>

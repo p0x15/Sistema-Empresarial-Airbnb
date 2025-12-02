@@ -404,9 +404,9 @@ const ReservacionesModule = () => {
                             >
                                 <div className="res-id">#{reserva.id}</div>
                                 <div className="res-info">
-                                    <h4>{propiedad?.nombre || 'Propiedad desconocida'}</h4>
-                                    <p>Huésped: {huesped?.nombre} {huesped?.apellido}</p>
-                                    <p><i>{reserva.notas}</i></p>
+                                    <h4 style={{ color: '#495057' }}>{propiedad?.nombre || 'Propiedad desconocida'}</h4>
+                                    <p style={{ color: '#495057' }}>Huésped: {huesped?.nombre} {huesped?.apellido}</p>
+                                    <p style={{ color: '#6c757d' }}><i>{reserva.notas}</i></p>
                                 </div>
                                 <div className="res-dates">
                                     <span className="date-range">

@@ -115,11 +115,11 @@ const PagosModule = () => {
 
                     return (
                         <tr key={pago.id}>
-                            <td>#{pago.idReserva}</td>
-                            <td>{formatearFecha(pago.fechaPago)}</td>
-                            <td>{huesped ? `${huesped.nombre} ${huesped.apellido}` : 'Desconocido'}</td>
-                            <td>{pago.metodoPago}</td>
-                            <td className="amount neutral">{formatearMoneda(pago.montoBruto)}</td>
+                            <td style={{ color: '#495057' }}>#{pago.idReserva}</td>
+                            <td style={{ color: '#495057' }}>{formatearFecha(pago.fechaPago)}</td>
+                            <td style={{ color: '#495057' }}>{huesped ? `${huesped.nombre} ${huesped.apellido}` : 'Desconocido'}</td>
+                            <td style={{ color: '#495057' }}>{pago.metodoPago}</td>
+                            <td className="amount neutral" style={{ color: '#495057' }}>{formatearMoneda(pago.montoBruto)}</td>
                             <td className="amount income">+{formatearMoneda(pago.comisionAirbnb)}</td>
                             <td>
                                 <span className={`status-badge ${pago.estadoPago.toLowerCase()}`}>
@@ -166,10 +166,10 @@ const PagosModule = () => {
 
                         return (
                             <tr key={pago.id}>
-                                <td>#{pago.idReserva}</td>
+                                <td style={{ color: '#495057' }}>#{pago.idReserva}</td>
                                 <td>
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                        <span style={{ fontWeight: 500 }}>{anfitrion ? `${anfitrion.nombre} ${anfitrion.apellido}` : 'Desconocido'}</span>
+                                        <span style={{ fontWeight: 500, color: '#495057' }}>{anfitrion ? `${anfitrion.nombre} ${anfitrion.apellido}` : 'Desconocido'}</span>
                                         <span style={{ fontSize: '0.8rem', color: '#6c757d' }}>{anfitrion?.datosBancarios?.banco || 'Banco No Reg.'}</span>
                                     </div>
                                 </td>

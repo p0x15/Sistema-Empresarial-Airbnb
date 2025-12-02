@@ -160,9 +160,9 @@ const MantenimientoModule = () => {
                                 {item.tipo === 'Limpieza' ? '🧹' : item.tipo === 'Preventivo' ? '🛡️' : '🔧'}
                             </div>
                             <div className="mant-info">
-                                <h4>{propiedad?.nombre || 'Propiedad Desconocida'}</h4>
-                                <p>{item.descripcion}</p>
-                                <p style={{ fontSize: '0.8rem', marginTop: '0.25rem' }}>📅 {formatearFecha(item.fechaProgramada)}</p>
+                                <h4 style={{ color: '#495057' }}>{propiedad?.nombre || 'Propiedad Desconocida'}</h4>
+                                <p style={{ color: '#495057' }}>{item.descripcion}</p>
+                                <p style={{ fontSize: '0.8rem', marginTop: '0.25rem', color: '#6c757d' }}>📅 {formatearFecha(item.fechaProgramada)}</p>
                             </div>
                             <div className="mant-financials">
                                 <span style={{ display: 'block', color: '#6c757d', fontSize: '0.85rem' }}>Cobro: {formatearMoneda(item.totalCobrado)}</span>
