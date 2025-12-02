@@ -193,6 +193,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: true,
       idAnfitrion: 2,
+      rating: 4.9,
       imagen: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -216,6 +217,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: false,
       idAnfitrion: 4,
+      rating: 4.8,
       imagen: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -239,6 +241,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: true,
       idAnfitrion: 6,
+      rating: 4.7,
       imagen: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -262,6 +265,7 @@ export const initialData = {
       aireAcondicionado: false,
       mascotasPermitidas: true,
       idAnfitrion: 9,
+      rating: 5.0,
       imagen: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -285,6 +289,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: false,
       idAnfitrion: 12,
+      rating: 4.6,
       imagen: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -308,6 +313,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: false,
       idAnfitrion: 2,
+      rating: 4.95,
       imagen: "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -331,6 +337,7 @@ export const initialData = {
       aireAcondicionado: false,
       mascotasPermitidas: true,
       idAnfitrion: 4,
+      rating: 4.85,
       imagen: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -354,6 +361,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: false,
       idAnfitrion: 6,
+      rating: 4.75,
       imagen: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -377,6 +385,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: false,
       idAnfitrion: 9,
+      rating: 4.9,
       imagen: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
     },
     {
@@ -400,6 +409,7 @@ export const initialData = {
       aireAcondicionado: true,
       mascotasPermitidas: true,
       idAnfitrion: 12,
+      rating: 4.8,
       imagen: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80"
     }
   ],

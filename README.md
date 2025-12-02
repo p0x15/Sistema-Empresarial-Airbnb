@@ -1,16 +1,33 @@
-# React + Vite
+# Sistema Empresarial Airbnb (Habitá)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una plataforma web de gestión de propiedades tipo Airbnb, desarrollada como parte de un sistema empresarial para administrar rentas vacacionales, finanzas y mantenimiento.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Gestión de Propiedades:** Catálogo visual con detalles, precios y disponibilidad.
+*   **Reservaciones:** Flujo completo de reserva para huéspedes.
+*   **Finanzas:** Módulo de Pagos (Ingresos) y Gastos (Egresos) con cálculo de utilidad neta.
+*   **Mantenimiento:** Control de órdenes de servicio (limpieza, reparaciones) vinculadas a propiedades.
+*   **Usuarios:** Roles diferenciados para Huéspedes y Anfitriones.
 
-## React Compiler
+## 🛠️ Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **Frontend:** React + Vite
+*   **Estilos:** CSS3 Moderno (Diseño Responsivo)
+*   **Despliegue:** GitHub Pages
 
-## Expanding the ESLint configuration
+## 📦 Instalación y Uso
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Clonar el repositorio.
+2.  Instalar dependencias: `npm install`
+3.  Correr en local: `npm run dev`
+4.  Construir para producción: `npm run build`
+
+---
+---
+**ITAM 2025**
+
+**Equipo:**
+*   Pedro Merino F.
+*   Mateo del Rosal Yañez
+*   Rodrigo Ruiz Lira

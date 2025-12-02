@@ -90,7 +90,7 @@ const MenuPrincipal = ({ onLogout }) => {
 
       <div className="footer-info">
         <p>Sistema Empresarial AirBnb - ITAM 2025</p>
-        <p>Pedro Merino F.</p>
+        <p>Pedro Merino F. • Mateo del Rosal Yañez • Rodrigo Ruiz Lira</p>
       </div>
     </div>
   );

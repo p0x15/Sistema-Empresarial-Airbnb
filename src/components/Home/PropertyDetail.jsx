@@ -64,7 +64,7 @@ const PropertyDetail = ({ property, onBack, onReserve, isUserLoggedIn }) => {
             <div className="detail-header">
                 <h1>{property.nombre}</h1>
                 <div className="detail-subtitle">
-                    <span>★ 4.9</span>
+                    <span>★ {property.rating}</span>
                     <span>•</span>
                     <span>{property.ciudad}, {property.estado}, {property.pais}</span>
                 </div>
@@ -130,7 +130,7 @@ const PropertyDetail = ({ property, onBack, onReserve, isUserLoggedIn }) => {
                                 <span className="price-large">{formatearMoneda(property.precioNoche)}</span>
                                 <span style={{ color: '#717171' }}> noche</span>
                             </div>
-                            <span>★ 4.9</span>
+                            <span>★ {property.rating}</span>
                         </div>
 
                         <div className="date-selection" onClick={() => setShowCalendar(true)} style={{ cursor: 'pointer' }}>

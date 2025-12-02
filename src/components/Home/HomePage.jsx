@@ -198,7 +198,7 @@ const HomePage = ({ onLogin, isUserLoggedIn }) => {
                         <div className="property-details-home">
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#222' }}>{propiedad.nombre}</h3>
-                                <span>★ 4.9</span>
+                                <span>★ {propiedad.rating}</span>
                             </div>
                             <p className="property-info-home" style={{ color: '#717171' }}>{propiedad.zona}, {propiedad.ciudad}</p>
                             <p className="property-info-home">{propiedad.tipoPropiedad} • {propiedad.capacidad} huéspedes</p>
