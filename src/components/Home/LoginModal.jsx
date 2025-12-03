@@ -40,8 +40,17 @@ const LoginModal = ({
 
                     {(modalMode === 'login' || modalMode === 'register') && (
                         <>
-                            <h3 className="welcome-text">
-                                {modalMode === 'register' ? 'Crear perfil de huésped' : 'Te damos la bienvenida a Airbnb'}
+                            <h3 className="welcome-text" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                                {modalMode === 'register' ? 'Crear perfil de huésped' : (
+                                    <>
+                                        Te damos la bienvenida a
+                                        <img
+                                            src="/Sistema-Empresarial-Airbnb/habita_logo.png"
+                                            alt="Habitá"
+                                            style={{ height: '30px', objectFit: 'contain' }}
+                                        />
+                                    </>
+                                )}
                             </h3>
 
                             <form onSubmit={onSubmit} className="login-form">
